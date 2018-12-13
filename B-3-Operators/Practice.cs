@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,7 +14,13 @@ namespace B_3_Operators
         /// </summary>
         public static void B3_P1_9_NumbersAddition()
         {
-
+            int x, y, z;
+            Console.WriteLine("Введите первое число: ");
+            x = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Введите второе число: ");
+            y = Convert.ToInt32(Console.ReadLine());
+            z = x + y;
+            Console.WriteLine("Сумма: " + z);
         }
 
         /// <summary>
@@ -23,7 +30,23 @@ namespace B_3_Operators
         /// </summary>
         public static void B3_P2_9_CheckResultAddition()
         {
-
+            int x, y, z;
+            int check;
+            Console.Write("Введите первое число: ");
+            x = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Введите второе число: ");
+            y = Convert.ToInt32(Console.ReadLine());
+            z = x + y;
+            Console.Write("Введите предполагаемый ответ:");
+            check = Convert.ToInt32(Console.ReadLine());
+            if (check == z)
+            {
+                Console.WriteLine("Ответ верный!");
+            }
+            else
+            {
+                Console.WriteLine("Ответ неверный. Верный ответ:" + z);
+            }
         }
 
         /// <summary>
@@ -33,6 +56,33 @@ namespace B_3_Operators
         /// </summary>
         public static void B3_P3_9_CheckResultAdditionWithTips()
         {
+            int x, y, z;
+            int check;
+            Console.Write("Введите первое число: ");
+            x = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Введите второе число: ");
+            y = Convert.ToInt32(Console.ReadLine());
+            z = x + y;
+            do
+            {
+                Console.Write("Введите предполагаемый ответ:");
+                check = Convert.ToInt32(Console.ReadLine());
+                if (check != z)
+                {
+                    if (check < z)
+                    {
+                        Console.WriteLine("Введенное число меньше ответа. Попробуйте снова! ");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Введенное число больше ответа. Попробуйте снова! ");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Ответ верный!");
+                }
+            } while (check != z);
 
         }
 
@@ -42,7 +92,36 @@ namespace B_3_Operators
         /// </summary>
         public static void B3_P4_9_CheckResultWithOperator()
         {
-
+            int x, y, z;
+            int check;
+            char a = 'A';
+            Console.Write("Введите первое число: ");
+            x = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Введите второе число: ");
+            y = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Складываем или вычитаем? ");
+            a = Convert.ToChar(Console.ReadLine());
+            z = a == '+' ? x + y : x - y;
+            do
+            {
+                Console.Write("Введите предполагаемый ответ:");
+                check = Convert.ToInt32(Console.ReadLine());
+                if (check != z)
+                {
+                    if (check < z)
+                    {
+                        Console.WriteLine("Введенное число меньше ответа. Попробуйте снова! ");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Введенное число больше ответа. Попробуйте снова! ");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Ответ верный!");
+                }
+            } while (check != z);
         }
 
         /// <summary>
@@ -51,7 +130,38 @@ namespace B_3_Operators
         /// </summary>
         public static void B3_P5_9_CheckResultWithAttemps()
         {
-
+            int x, y, z;
+            int check = 0;
+            int i = 3;
+            char a = ' ';
+            Console.Write("Введите первое число: ");
+            x = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Введите второе число: ");
+            y = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Складываем или вычитаем? ");
+            a = Convert.ToChar(Console.ReadLine());
+            z = a == '+' ? x + y : x - y;
+            Console.Write($"Введите предполагаемый ответ (у вас всего 3 попытки!): ");
+            do
+            {
+                check = Convert.ToInt32(Console.ReadLine());
+                if (check != z)
+                {
+                    if (check < z)
+                    {
+                        Console.Write("Введенное число меньше ответа. Попробуйте снова! ");
+                    }
+                    else
+                    {
+                        Console.Write("Введенное число больше ответа. Попробуйте снова! ");
+                    }
+                }
+                else{} break;
+                Console.Write("Введите предполагаемый ответ:");
+            } while (check!= z);
+            Console.WriteLine("Ответ верный!");
+            //if (i == 0) break;
+            //Console.WriteLine("Вы привысили кол-во попыток! Верный ответ: " + z);
         }
 
         /// <summary>
