@@ -132,7 +132,7 @@ namespace B_3_Operators
         {
             int x, y, z;
             int check = 0;
-            int i = 3;
+            int i = 2;
             char a = ' ';
             Console.Write("Введите первое число: ");
             x = Convert.ToInt32(Console.ReadLine());
@@ -144,20 +144,21 @@ namespace B_3_Operators
             Console.Write($"Введите предполагаемый ответ (у вас всего 3 попытки!): ");
             do
             {
-                check = Convert.ToInt32(Console.ReadLine());
-                if (check != z)
+                do
                 {
-                    if (check < z)
-                    {
-                        Console.Write("Введенное число меньше ответа. Попробуйте снова! ");
-                    }
-                    else
-                    {
-                        Console.Write("Введенное число больше ответа. Попробуйте снова! ");
-                    }
-                }
-                else{} break;
-                Console.Write("Введите предполагаемый ответ:");
+                    check = Convert.ToInt32(Console.ReadLine());
+                    if (check == z) break;
+                        if (check < z)
+                        {
+                            Console.Write("Введенное число меньше ответа. Осталось попыток:" + i + "." + "Попробуйте снова: ");
+                        }
+                        else
+                        {
+                            Console.Write("Введенное число больше ответа. Осталось попыток:" +i+"."+"Попробуйте снова: ");
+                        }
+
+                    i--;
+                } while (i == 0);
             } while (check!= z);
             Console.WriteLine("Ответ верный!");
             //if (i == 0) break;
