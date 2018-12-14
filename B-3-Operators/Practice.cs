@@ -171,7 +171,41 @@ namespace B_3_Operators
         /// </summary>
         public static void B3_P6_9_FiveNumbersAddition()
         {
+            int x, y, x1, y1,x2, z;
+            int check = 0;
+            int i = 2;
+            char a = ' ';
+            Console.Write("Введите первое число: ");
+            x = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Введите второе число: ");
+            y = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Введите третье число: ");
+            x1 = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Введите четвертое число: ");
+            y1 = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Введите пятое число: ");
+            x2 = Convert.ToInt32(Console.ReadLine());
+            z = x + y + x1 + y1 + x2;
+            Console.Write($"Введите предполагаемый ответ (у вас всего 3 попытки!): ");
+            do
+            {
+                do
+                {
+                    check = Convert.ToInt32(Console.ReadLine());
+                    if (check == z) break;
+                    if (check < z)
+                    {
+                        Console.Write("Введенное число меньше ответа. Осталось попыток:" + i + "." + "Попробуйте снова: ");
+                    }
+                    else
+                    {
+                        Console.Write("Введенное число больше ответа. Осталось попыток:" + i + "." + "Попробуйте снова: ");
+                    }
 
+                    i--;
+                } while (i == 0);
+            } while (check != z);
+            Console.WriteLine("Ответ верный!");
         }
 
         /// <summary>
@@ -188,7 +222,12 @@ namespace B_3_Operators
         /// </summary>
         public static void B3_P8_9_CircleArea()
         {
-
+            double radius, sqr;
+            double pi = 3.14;
+            Console.Write("Введите радиус круга: ");
+            radius = Convert.ToDouble(Console.ReadLine());
+            sqr = pi * Math.Pow(radius, 2);
+            Console.WriteLine("Площадь окружности равна: " + sqr);
         }
 
         /// <summary>
@@ -196,7 +235,17 @@ namespace B_3_Operators
         /// </summary>
         public static void B3_P9_9_CreaditCalculator()
         {
-
+            double sumCredit, monthPay;
+            int procent, kolMonths;
+            Console.Write("Введите сумму кредитования: ");
+            sumCredit = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Введите срок кредитования: ");
+            kolMonths = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Введите процентную ставку кредитования: ");
+            procent = Convert.ToInt32(Console.ReadLine());
+            monthPay = sumCredit * ((procent * Math.Pow((1 + procent), kolMonths)) /
+                                    (Math.Pow((1 + procent), kolMonths) - 1));
+            Console.WriteLine("Eжеесячный платеж: " + monthPay);
         }
     }
 }
